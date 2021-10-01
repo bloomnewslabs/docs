@@ -18,8 +18,8 @@ Use the following sections to learn how to use the API. If you have questions or
 4. [Method Response](#method-response)
 5. [Examples](#examples)
     1. [Add Post](#example-add-post)
-    2. [Successful Method Call](#example-successful-method-call)
-    3. [Failed Method Call](#example-failed-method-call)
+    2. [Successful Method Response](#example-successful-method-response)
+    3. [Failed Method Response](#example-failed-method-response)
 
 <br><br>
 
@@ -300,6 +300,7 @@ The Location Error Response Object is included in the response from a [Method](#
 
 The following are examples that can be used as reference when integrating the API.
 
+<br>
 
 ### Example: Add Post
 
@@ -331,7 +332,9 @@ The following are examples that can be used as reference when integrating the AP
 }
 ```
 
-### Example: Successful Method Call
+<br>
+
+### Example: Successful Method Response
 
 ```
 {
@@ -359,7 +362,9 @@ The following are examples that can be used as reference when integrating the AP
 }
 ```
 
-### Example: Failed Method Call
+<br>
+
+### Example: Failed Method Response
 
 ```
 {
