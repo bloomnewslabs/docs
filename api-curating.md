@@ -74,22 +74,19 @@ After the call, a [Response](#method-response) will be returned with information
 This method will retrieve Posts. [View example](#example-get-posts).
 
 *Requires attributes from [Authentication](#authentication).*
-*Dot (.) represents array or object index.*
 
 
 | Attribute       | Type        | Value Description                                |
 | --------------- | ----------- | ------------------------------------------------ |
 | app_action      | String      | "post_get"                                       |
-| filter.location                        | Array      | Filter content by location  |
-| filter.location.latitude               | Float      | Latitude coordinate of location epicenter  |
-| filter.location.longitude              | Float      | Longitude coordinate of location epicenter  |
-| filter.location.radius                 | Number     | Radius (in miles) from location epicenter  |
-| filter.location.secondary              | Boolean    | Whether to retrieve Posts whose primary *or secondary* locations are within the filtered location. When geotagging, publishers have the option to add up to 29 secondary locations for each Post  |
-| filter.location.get_surrounding        | Boolean    | Whether to retrieve Posts in the location's immediate geographic surroundings if no posts are found within the filtered location. Bloom will incrementally extend the radius to a maximum of 6 miles and retry  |
-| filter.date                            | Array      | Filter content by date range or number of days in the future   |
-| filter.date.start                      | Datetime   | Start of date range   |
-| filter.date.end                        | Datetime   | End of date range   |
-| filter.date.days                       | Number     | Days from current date   |
+| location_latitude               | Float      | Latitude coordinate of location epicenter  |
+| location_longitude              | Float      | Longitude coordinate of location epicenter  |
+| location_radius                 | Number     | Radius (in miles) from location epicenter  |
+| location_secondary              | Boolean    | Whether to retrieve Posts whose primary *or secondary* locations are within the filtered location. When geotagging, publishers have the option to add up to 29 secondary locations for each Post  |
+| location_surrounding        | Boolean    | Whether to retrieve Posts in the location's immediate geographic surroundings if no posts are found within the filtered location. Bloom will incrementally extend the radius to a maximum of 6 miles and retry  |
+| date_start                      | Datetime   | Start of date range   |
+| date_end                        | Datetime   | End of date range   |
+| date_days                       | Number     | Days from current date   |
 
 
 <br><br>
@@ -101,6 +98,7 @@ This method will retrieve Posts. [View example](#example-get-posts).
 ## Method Response
 
 Upon a method call, the following data will be returned as a JSON object. Responses should first be checked by their *success* and *code* attributes. If either of those show the method call failed, the *code* or *message* should be used to identify the issue. The *data* attribute/object may not be available for unsuccessful method calls.
+*Dot (.) represents array or object index.*
 
  View examples of [Successful Call](#example-successful-method-response) and [Failed Call](#example-failed-method-response).
 
@@ -219,23 +217,22 @@ The following are examples that can be used as reference when integrating the AP
 
 ### Example: Get Posts
 
+Data within the URL parameters might be:
+
 ```
 {
   "app_key": "###",
   "app_action": "post_get"
-  "filter": {
-    "location": {
-      "latitude": 37.8033,
-      "longitude": -122.2711,
-      "radius": 2
-      "secondary": true
-    },
-    "date": {
-      "days": 7
-    }
-  }
+  "location_latitude": 37.8033,
+  "location_longitude": -122.2711,
+  "location_radius": 2,
+  "location_secondary": true,
+  "date_days": 7
 }
 ```
+
+URL example:
+https://api.bloom.li/post/?app_key=###&app_action=post_get&location_latitude=37.8033&location_longitude=-122.2711&location_radius=2&location_secondary=true&date_days=7
 
 <br>
 
